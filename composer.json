@@ -1,0 +1,19 @@
+{
+    "name": "henrydpalacios/oopdemo",
+    "description": "Demo project for to practice oriented object programming",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Henry Palacios",
+            "email": "henrydpalacios@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "files" : ["src/helpers.php"],
+        "psr-4": {
+            "App\\": "src"
+        }
+    }
+}
