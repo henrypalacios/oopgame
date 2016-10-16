@@ -1,17 +1,27 @@
 <?php
 
 
-namespace App\Weapon;
+namespace App\weapon;
 
+use App\Weapon;
 
-use App\Unit;
-
-class BasicBow extends Bow
+class BasicBow extends Weapon
 {
-    protected $damage = 20;
+    protected $description = ':unit threw the arrows at :oponent';
+    protected $minDamage = 30;
+    protected $damage = 60;
 
-    public function getDescription(Unit $attacker, Unit $opponent)
+    public function __construct()
     {
-        return "{$attacker->getName()} threw the arrows at {$opponent->getName()}";
+        $this->setDamage();
     }
+
+    public function setDamage(int $damage = 0)
+    {
+        if ($damage > $this->damage) {
+            $this->damage = $damage;
+        }
+        $this->damage = rand($this->minDamage, $this->damage);
+    }
+
 }

@@ -4,7 +4,7 @@
 namespace App;
 
 
-abstract class Unit
+class Unit
 {
     protected $name;
     protected $hp = 100;
@@ -17,7 +17,7 @@ abstract class Unit
         $this->weapon = $weapon;
     }
 
-    protected function setArmor(Armor $armor = null)
+    public function setArmor(Armor $armor = null)
     {
         $this->armor = $armor;
     }
@@ -32,12 +32,19 @@ abstract class Unit
         return $this->hp;
     }
 
+    public function getWeapon() : Weapon
+    {
+        return $this->weapon;
+    }
+
     public function attack(Unit $opponent)
     {
+        $attack = $this->weapon->createAttack();
+
         show(
-            $this->weapon->getDescription($this, $opponent)
+            $attack->getDescription($this, $opponent)
         );
-        $opponent->takeDamage($this->weapon->getDamage());
+        $opponent->takeDamage($attack);
     }
 
     private function die()
@@ -46,9 +53,9 @@ abstract class Unit
         exit();
     }
 
-    public function takeDamage($damage)
+    public function takeDamage(Attack $attack)
     {
-        $this->hp = $this->hp - $this->absorbDamage($damage);
+        $this->hp = $this->hp - $this->absorbDamage($attack);
 
         show("{$this->name} now have {$this->hp} points of life", true);
 
@@ -57,13 +64,13 @@ abstract class Unit
         }
     }
 
-    protected function absorbDamage($damage)
+    protected function absorbDamage(Attack $attack)
     {
         if ($this->armor) {
-            $damage = $this->armor->absorbDamage($damage);
+            $this->armor->absorbDamage($attack);
         }
 
-        return $damage;
+        return $attack->getDamage();
     }
 
 }

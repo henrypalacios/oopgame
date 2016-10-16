@@ -5,11 +5,12 @@ namespace App\armor;
 
 
 use App\Armor;
+use App\Attack;
 
 class BronzeArmor implements Armor
 {
-    public function absorbDamage(int $damage)
+    public function absorbDamage(Attack $attack)
     {
-        return $damage / 2;
+        return ($attack->getDamage() / 3) ;
     }
 }

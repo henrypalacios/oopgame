@@ -3,15 +3,13 @@
 
 namespace App\weapon;
 
-
+use App\Weapon;
 use App\Unit;
 
-class BasicSword extends Sword
+class BasicSword extends Weapon
 {
-    protected $damage = 100;
+    protected $damage = 50;
+    protected $description = ':unit attacked with the sword :oponent';
 
-    public function getDescription(Unit $attacker, Unit $opponent)
-    {
-        return "{$attacker->getName()} attacked with the sword {$opponent->getName()}";
-    }
+
 }

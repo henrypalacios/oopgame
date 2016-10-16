@@ -5,5 +5,5 @@ namespace App;
 
 interface Armor
 {
-    public function absorbDamage(int $damage);
+    public function absorbDamage(Attack $attack);
 }
