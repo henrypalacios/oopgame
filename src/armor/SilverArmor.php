@@ -7,7 +7,7 @@ use App\Armor;
 use App\Attack;
 use App\Unit;
 
-Class SilverArmor implements Armor
+Class SilverArmor extends Armor
 {
     public function __construct(Unit $unit)
     {
@@ -15,12 +15,9 @@ Class SilverArmor implements Armor
         $weapon->setDamage(80);
     }
 
-    public function absorbDamage(Attack $attack)
+    public function absorbPhysicalDamage(Attack $attack)
     {
-        if ($attack->isPhysical()) {
-            return $attack->getDamage() / 2;
-        }
-
-        return $attack->getDamage();
+        return $attack->getDamage() / 2;
     }
+
 }

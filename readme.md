@@ -8,8 +8,10 @@
     y si Jon no ha muerto ataca por última vez.
     
     - Un arma puede generar un tipo de ataque (magico o fisico)
-    - Antes de Jon ser atacado, se coloca una armadura de Plata, que 
-    puede reducir el doble del daño solo si el ataque es físico, ademas
-    esta armadura aumenta el daño que puede hacer el arma a 80.
+    - Antes de Jon ser atacado por segunda vez se coloca una armadura 
+    de Plata, que puede reducir el doble del daño solo si el ataque es 
+    físico, ademas esta armadura aumenta el daño que puede hacer su arma
+    a 80.
     - El arco Magico puede hacer un maximo daño de 80 y un minimo de 40,
-    mientras que un arco básico puede hacer de 30 a 60 de daño.
+    mientras que un arco básico puede hacer de 30 a 60 de daño. Ya que 
+    los arcos hacen el daño aleatorimente de donde caiga la flecha.

@@ -4,6 +4,8 @@
 namespace App;
 
 
+use App\armor\MissingArmor;
+
 class Unit
 {
     protected $name;
@@ -15,6 +17,7 @@ class Unit
     {
         $this->name = $name;
         $this->weapon = $weapon;
+        $this->armor = New MissingArmor();
     }
 
     public function setArmor(Armor $armor = null)
@@ -55,22 +58,13 @@ class Unit
 
     public function takeDamage(Attack $attack)
     {
-        $this->hp = $this->hp - $this->absorbDamage($attack);
+        $this->hp = $this->hp - $this->armor->absorbDamage($attack);
 
         show("{$this->name} now have {$this->hp} points of life", true);
 
         if ($this->hp <= 0) {
            $this->die();
         }
-    }
-
-    protected function absorbDamage(Attack $attack)
-    {
-        if ($this->armor) {
-            $this->armor->absorbDamage($attack);
-        }
-
-        return $attack->getDamage();
     }
 
 }
