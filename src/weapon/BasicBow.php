@@ -7,7 +7,6 @@ use App\Weapon;
 
 class BasicBow extends Weapon
 {
-    protected $description = ':unit threw the arrows at :oponent';
     protected $minDamage = 30;
     protected $damage = 60;
 

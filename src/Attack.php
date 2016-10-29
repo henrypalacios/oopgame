@@ -8,21 +8,20 @@ class Attack
 {
     private $damage;
     private $magical;
-    private $description;
+    private $descriptionKey;
 
-    public function __construct(int $damage, bool $magical, string $description)
+    public function __construct(int $damage, bool $magical, string $descriptionKey)
     {
         $this->damage = $damage;
         $this->magical = $magical;
-        $this->description = $description;
+        $this->descriptionKey = $descriptionKey;
     }
 
     public function getDescription(Unit $attacker, Unit $opponent) {
-        return str_replace(
-            [':unit', ':oponent'],
-            [$attacker->getName(), $opponent->getName()],
-            $this->description
-        );
+        return Translator::get($this->descriptionKey, [
+            'unit' => $attacker->getName(),
+            'opponent' => $opponent->getName()
+        ]);
     }
 
     public function getDamage()

@@ -4,6 +4,13 @@ namespace App;
 
 require '../vendor/autoload.php';
 
+Translator::set(
+    array(
+        'BasicBowAttack' => ':unit Lanzó Flechas a Oponente :opponent',
+        'BasicSwordAttack' => ':unit atacó con la espada a :opponent',
+        'FireBowAttack' => ':unit Lanzó flechas de fuego a :opponent'
+    )
+);
 
 $jon = new Unit("Jon Snow", new weapon\BasicSword);
 $ramsay = new Unit("Ramsay Bolton", new weapon\FireBow);
