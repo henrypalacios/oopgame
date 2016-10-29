@@ -13,8 +13,9 @@ Translator::set(
 );
 
 $jon = new Unit("Jon Snow", new weapon\BasicSword);
-$ramsay = new Unit("Ramsay Bolton", new weapon\FireBow);
-$ramsay->setArmor(new armor\BronzeArmor);
+$ramsay = Unit::createArcher()
+            ->setWeapon(new weapon\FireBow())
+            ->setArmor(new armor\BronzeArmor());
 
 $jon->attack($ramsay);
 

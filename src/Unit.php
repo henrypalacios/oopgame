@@ -23,6 +23,13 @@ class Unit
     public function setArmor(Armor $armor = null)
     {
         $this->armor = $armor;
+        return $this;
+    }
+
+    public function setWeapon(Weapon $weapon)
+    {
+        $this->weapon = $weapon;
+        return $this;
     }
 
     public function getName()
@@ -65,6 +72,14 @@ class Unit
         if ($this->hp <= 0) {
            $this->die();
         }
+    }
+
+    public static function createArcher()
+    {
+        $archer = new Unit("Ramsay Bolton", new weapon\BasicBow);
+        $archer->setArmor(new armor\MissingArmor);
+
+        return $archer;
     }
 
 }
