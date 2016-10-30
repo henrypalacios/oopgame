@@ -1,0 +1,7 @@
+(2016-10-30 01:19:07) Jon Snow atacó con la espada a Ramsay Bolton 
+(2016-10-30 01:19:07) Ramsay Bolton now have 83.333333333333 points of life 
+(2016-10-30 01:19:07) Ramsay Bolton Lanzó flechas de fuego a Jon Snow 
+(2016-10-30 01:19:07) Jon Snow now have 46 points of life 
+(2016-10-30 01:19:07) Ramsay Bolton Lanzó flechas de fuego a Jon Snow 
+(2016-10-30 01:19:07) Jon Snow now have -8 points of life 
+(2016-10-30 01:19:07) Jon Snow is dead 

@@ -51,7 +51,7 @@ class Unit
     {
         $attack = $this->weapon->createAttack();
 
-        show(
+        Log::info(
             $attack->getDescription($this, $opponent)
         );
         $opponent->takeDamage($attack);
@@ -59,7 +59,7 @@ class Unit
 
     private function die()
     {
-        show("$this->name is dead");
+        Log::info("$this->name is dead");
         exit();
     }
 
@@ -67,7 +67,7 @@ class Unit
     {
         $this->hp = $this->hp - $this->armor->absorbDamage($attack);
 
-        show("{$this->name} now have {$this->hp} points of life", true);
+        Log::info("{$this->name} now have {$this->hp} points of life", true);
 
         if ($this->hp <= 0) {
            $this->die();

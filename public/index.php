@@ -12,6 +12,8 @@ Translator::set(
     )
 );
 
+Log::setLogger(new HtmlLogger());
+
 $jon = new Unit("Jon Snow", new weapon\BasicSword);
 $ramsay = Unit::createArcher()
             ->setWeapon(new weapon\FireBow())
