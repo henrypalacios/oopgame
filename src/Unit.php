@@ -8,6 +8,8 @@ use App\armor\MissingArmor;
 
 class Unit
 {
+    const MAX_DAMAGE = 100;
+
     protected $name;
     protected $hp = 100;
     protected $armor;
@@ -65,13 +67,24 @@ class Unit
 
     public function takeDamage(Attack $attack)
     {
-        $this->hp = $this->hp - $this->armor->absorbDamage($attack);
+        $this->setHp(
+            $this->armor->absorbDamage($attack)
+        );
 
         Log::info("{$this->name} now have {$this->hp} points of life", true);
 
         if ($this->hp <= 0) {
            $this->die();
         }
+    }
+
+    public function setHp($damage)
+    {
+        if ($damage > static::MAX_DAMAGE) {
+            $damage = static::MAX_DAMAGE;
+        }
+
+        $this->hp = $this->hp - $damage;
     }
 
     public static function createArcher()
